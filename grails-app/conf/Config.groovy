@@ -89,6 +89,7 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+/*
 security {
    twitter {
         language = "en_US"
@@ -111,6 +112,11 @@ security {
         }
     }
 }
+*/
+//Configuration for twitter
+grails.plugins.springsocial.twitter.consumerKey = "FdWj4M6SzD6r0QEL7WfeA"
+grails.plugins.springsocial.twitter.consumerSecret = "ew7nfEHiBb1Z2DEhtYBWg4HbWwvX8JXONLEmJcovvA"
+
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.zazzercode.whotweetsnepal.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.zazzercode.whotweetsnepal.UserRole'
