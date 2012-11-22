@@ -3,6 +3,7 @@ package whotweetsnepal
 //import grails.converters.JSON
 //import grails.converters.JSONObject
 import grails.converters.*
+import org.codehaus.groovy.grails.web.json.*; // package containing JSONObject, JSONArray,...
 import groovyx.net.http.*
 import static groovyx.net.http.ContentType.*
 import static groovyx.net.http.Method.*
