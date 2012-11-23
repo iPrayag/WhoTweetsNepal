@@ -7,7 +7,7 @@ import org.codehaus.groovy.grails.web.json.*; // package containing JSONObject, 
 import groovyx.net.http.*
 import static groovyx.net.http.ContentType.*
 import static groovyx.net.http.Method.*
-
+import groovy.json.JsonSlurper
 /**
  * @author Prayag Upd
  * @created 20 Nov, 2012
@@ -21,27 +21,12 @@ class NepTweetController {
           def http = new HTTPBuilder(restEndpointUrl);
           
           // perform a GET request, expecting JSON response data
-          http.request( GET, JSON ) {
+          http.request( GET, ContentType.JSON ) {
                 //uri.path = '/search.json'
                 //uri.query = [ q: '%23nepal' ]
                             response.success = { resp, json ->
-                                          //println resp.statusLine
-                                          //def tweets = json.responseData;
-                                          def tweets = json;
-                                          List parsedList = JSON.parse(json) as List;
-                                          JSONObject tweetJson = JSON.parse(json);
-                                          tweetJson.each { id, data -> 
-                                                 println data.text;
-                                          }
-                                          def tResponse='';
-                                          def tweetsRes = json.each{
-                                                tResponse = it;         
-                                          }
-                                          // parse the JSON response object:
-                                         // json.responseData.results.each {
-                                           // println "  ${it.titleNoFormatting} : ${it.visibleUrl}"
-                                         // }//eo each
-                                         render(view: "index", model: [message: "Request sent" , tweets: tweets, t:tResponse]);
+                                          def tweetsResult = json.results;
+                                         render(view: "index", model: [message: "Request sent" , tweets: tweetsResult]);
                              }
 
                             // handler for any failure status code:
