@@ -35,6 +35,12 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
+        // httpbuilder
+        compile('org.codehaus.groovy.modules.http-builder:http-builder:0.5.0') {
+                     excludes "commons-logging", "xml-apis", "groovy"
+        }
+       //mongodb dependency with no need to grails-install plugin mongodb
+       //compile ":mongodb:1.0.0.GA"
     }
 
     plugins {
