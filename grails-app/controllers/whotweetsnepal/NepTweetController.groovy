@@ -25,9 +25,9 @@ class NepTweetController {
                 //uri.path = '/search.json'
                 //uri.query = [ q: '%23nepal' ]
                             response.success = { resp, json ->
-                                          def tweetsResult = json.results;
+                                         def tweetsResult = json.results;
                                          render(view: "index", model: [message: "Request sent" , tweets: tweetsResult]);
-                             }
+                            }
 
                             // handler for any failure status code:
                             response.failure = { resp ->
