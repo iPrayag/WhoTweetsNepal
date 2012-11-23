@@ -27,9 +27,12 @@ class NepTweetController {
                             response.success = { resp, json ->
                                           //println resp.statusLine
                                           //def tweets = json.responseData;
+                                         // def tweetsResult = json.results;
                                           def tweets = json;
-                                          List parsedList = JSON.parse(json) as List;
-                                          JSONObject tweetJson = JSON.parse(json);
+                                         // List parsedList = JSON.parse(json) as List;
+                                         // JSONObject tweetJson = JSON.parse(json);
+				         //def tweetJson = JSON.parse(json);
+                                          def tweetJson = new JSON(json) as Map;
                                           tweetJson.each { id, data -> 
                                                  println data.text;
                                           }
